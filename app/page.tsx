@@ -1,7 +1,18 @@
+import UserInformation from "@/components/UserInformation";
+
 export default function Home() {
   return (
-    <main className="flex">
-      <h1></h1>
-    </main>
-  );
+    <div className="grid">
+      <section>
+        {/*UserInformation*/}
+        <UserInformation />
+      </section>
+      <section>
+        {/*PostForm*/}
+        {/*PostFeed*/}
+      </section>
+      <section>
+        {/*Widget*/}
+      </section>
+    </div>  );
 }
