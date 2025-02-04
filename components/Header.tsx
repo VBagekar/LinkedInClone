@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import {
   SearchIcon,
   HomeIcon,
@@ -6,6 +7,7 @@ import {
   MessageSquareIcon,
 } from "lucide-react";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 function Header() {
   return (
@@ -52,6 +54,17 @@ function Header() {
           <MessageSquareIcon className="h-6 w-6 text-gray-600" />
           <p>Messages</p>
         </div>
+        {/*User button if signed in*/}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+
+        {/*User button if not signed in*/}
+        <SignedOut>
+          <Button asChild variant="secondary">
+            <SignInButton />
+          </Button>
+        </SignedOut>
       </div>
     </div>
   );
