@@ -1,3 +1,4 @@
+import PostForm from "@/components/PostForm";
 import UserInformation from "@/components/UserInformation";
 
 export default function Home() {
@@ -5,14 +6,13 @@ export default function Home() {
     <div className="grid">
       <section>
         {/*UserInformation*/}
-        <UserInformation />
+       
       </section>
       <section>
-        {/*PostForm*/}
+        <PostForm />
         {/*PostFeed*/}
       </section>
-      <section>
-        {/*Widget*/}
-      </section>
-    </div>  );
+      <section>{/*Widget*/}</section>
+    </div>
+  );
 }

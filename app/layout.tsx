@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import { clerkMiddleware } from "@clerk/nextjs/server";
 import { ClerkProvider } from "@clerk/nextjs";
+import UserInformation from "@/components/UserInformation"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,18 +27,27 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body className="min-h-screen flex flex-col">
-        {/*Toaster */}
+      <html lang="en">
+        <body className="min-h-screen flex flex-col bg-[#f3f2ef]"> {/* Light Gray Background */}
+          {/* Header */}
+          <header className="border-b sticky top-0 bg-white z-50 shadow-sm">
+            <Header />
+          </header>
 
-        <header className="border-b sti top-0 bg-white z-50">
-          <Header></Header>
-        </header>
-        <div className="bg-[#f4f2ed] flex-1 w-full">
-          <main>{children}</main>
-        </div>
-      </body>
-    </html>
+          {/* Main Content Wrapper */}
+          <div className="flex justify-center gap-4 p-4"> 
+        {/* Sidebar (auto height) */}
+        <aside className="w-64  p-4 rounded-lg self-start"> 
+          <UserInformation />
+        </aside>
+
+            {/* Main Content */}
+            <main className="flex-1 max-w-2xl p-6 rounded-lg "> 
+              {children}
+            </main>
+          </div>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
